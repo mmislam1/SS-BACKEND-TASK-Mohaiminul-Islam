@@ -13,12 +13,14 @@ userRouter.post(
         const user = await User.findOne({ email: req.body.email });
         if (user) {
             if (bcrypt.compareSync(req.body.password, user.password)) {
-                res.send({
+
+                generatedToken = generateToken(user)
+                res.cookie('token', generatedToken).send({
                     _id: user._id,
                     name: user.name,
                     email: user.email,
                     isAuthor: user.isAuthor,
-                    token: generateToken(user),
+                    token: generatedToken,
                 });
                 return;
             }
@@ -36,12 +38,13 @@ userRouter.post(
             password: bcrypt.hashSync(req.body.password, 8),
         });
         const createdUser = await user.save();
-        res.send({
-            _id: createdUser._id,
-            name: createdUser.name,
-            email: createdUser.email,
-            isAuthor: createdUser.isAuthor,
-            token: generateToken(createdUser),
+        generatedToken = generateToken(user)
+        res.cookie('token', generatedToken).send({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAuthor: user.isAuthor,
+            token: generatedToken,
         });
     })
 );
