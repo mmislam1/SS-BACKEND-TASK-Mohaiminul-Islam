@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "expressjs": "^1.0.1",
+    "gitignore": "^0.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22"
+  },
+  "name": "ss-backend-task",
+  "version": "1.0.0",
+  "description": "Movie list management backend app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch TASK --exec node --experimental-modules TASK/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmislam1/SS-BACKEND-TASK-Mohaiminul-Islam"
+  },
+  "author": "mmislam",
+  "license": "ISC"
+}
